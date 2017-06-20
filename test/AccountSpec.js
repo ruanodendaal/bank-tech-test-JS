@@ -26,7 +26,11 @@ describe('Account', function() {
 
     it('make a £100 deposit', function() {
       acc.deposit(100);
-      expect(acc.balance).to.equal(100);
+      expect(acc.getBalance()).to.equal(100);
     });
+
+    it('does not allow negative deposits', function() {
+      expect(acc.deposit.bind(acc, -10)).to.throw('-10 does not conform to the allowed amount');
+    })
   });
 });
