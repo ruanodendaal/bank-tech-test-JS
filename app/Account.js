@@ -11,7 +11,7 @@ class Account {
     if (amount > 0) {
       return this._balance += amount;
     } else {
-      throw new Error(`${amount} does not conform to the allowed amount`);
+      throw new Error(`${amount}: you cannot deposit a negative amount!`);
     }
 
   }

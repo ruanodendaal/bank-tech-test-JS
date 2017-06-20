@@ -29,8 +29,12 @@ describe('Account', function() {
       expect(acc.getBalance()).to.equal(100);
     });
 
-    it('does not allow negative deposits', function() {
-      expect(acc.deposit.bind(acc, -10)).to.throw('-10 does not conform to the allowed amount');
+    it('does not allow zero deposits', function() {
+      expect(acc.deposit.bind(acc, 0)).to.throw('0: you cannot deposit zero!');
     })
+
+    it('does not allow negative deposits', function() {
+      expect(acc.deposit.bind(acc, -10)).to.throw('-10: you cannot deposit a negative amount!');
+    });
   });
 });
