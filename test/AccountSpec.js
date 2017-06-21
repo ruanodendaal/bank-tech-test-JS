@@ -15,6 +15,11 @@ describe('Account', function() {
       var acc = new Account.Account(500);
       expect(acc.getBalance()).to.equal(500);
     });
+
+    it('has an empty statement of transactions', function() {
+      var acc = new Account.Account();
+      expect(acc.statement.transactions).be.empty;
+    })
   });
 
   describe('Making deposits', function() {

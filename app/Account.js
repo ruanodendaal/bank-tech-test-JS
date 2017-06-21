@@ -1,8 +1,10 @@
 'use strict';
+const Statement = require('./Statement');
 
 class Account {
   constructor(balance) {
     this._balance = (typeof balance === 'undefined' ? 0 : balance);
+    this.statement = new Statement.Statement();
   }
   getBalance() {
     return this._balance;
@@ -21,7 +23,7 @@ class Account {
         throw new Error(`${type}: not recognised`);
     }
   }
-}
+};
 
 function isValid(type, amount) {
   if (amount == 0) {
