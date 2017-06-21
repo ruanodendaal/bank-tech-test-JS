@@ -9,9 +9,9 @@ Write a simple banking program that satisfy the below conditions.
 ### Requirements
 
 * You should be able to interact with the your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)
-* Deposits, withdrawal.
+* Deposits, withdrawals.
 * Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
+* Data can be kept in memory (it doesn't need to be stored to a database).
 
 ### User Stories
 ```
@@ -53,6 +53,9 @@ date || credit || debit || balance
 
 ### Instructions
 
-```javascript
+To run:
+`node index.js`
 
-```
+### Technologies
+- JavaScript
+- Mocha & Chai testing
