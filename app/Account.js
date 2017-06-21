@@ -16,6 +16,15 @@ class Account {
       return this._balance += amount;
     }
   }
+  withdraw(amount) {
+    if (amount == 0) {
+      throw new Error(`${amount}: you cannot withdraw zero!`);
+    } else if (amount < 0) {
+      throw new Error(`${amount}: please choose a positive amount to withdraw`);
+    } else {
+      return this._balance -= amount;
+    }
+  }
 }
 
 exports.Account = Account;
