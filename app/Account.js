@@ -7,24 +7,28 @@ class Account {
   getBalance() {
     return this._balance;
   }
-  deposit(amount) {
-    if (amount == 0) {
-      throw new Error(`${amount}: you cannot deposit zero!`);
-    } else if (amount < 0) {
-      throw new Error(`${amount}: you cannot deposit a negative amount!`);
-    } else {
-      return this._balance += amount;
-    }
-  }
-  withdraw(amount) {
-    if (amount == 0) {
-      throw new Error(`${amount}: you cannot withdraw zero!`);
-    } else if (amount < 0) {
-      throw new Error(`${amount}: please choose a positive amount to withdraw`);
-    } else {
-      return this._balance -= amount;
+  makeTransaction(type, amount) {
+    switch (type) {
+      case "deposit":
+        isValid(type, amount)
+        return this._balance += amount;
+        break;
+      case "withdraw":
+        isValid(type, amount)
+        return this._balance -= amount;
+        break;
+      default:
+        throw new Error(`${type}: not recognised`);
     }
   }
 }
+
+function isValid(type, amount) {
+  if (amount == 0) {
+    throw new Error(`${amount}: you cannot ${type} zero!`);
+  } else if (amount < 0) {
+    throw new Error(`${amount}: you cannot ${type} a negative amount!`);
+  }
+};
 
 exports.Account = Account;

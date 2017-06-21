@@ -25,16 +25,16 @@ describe('Account', function() {
     });
 
     it('make a £100 deposit', function() {
-      acc.deposit(100);
+      acc.makeTransaction("deposit", 100);
       expect(acc.getBalance()).to.equal(100);
     });
 
     it('does not allow zero deposits', function() {
-      expect(acc.deposit.bind(acc, 0)).to.throw('0: you cannot deposit zero!');
+      expect(acc.makeTransaction.bind(acc, "deposit", 0)).to.throw('0: you cannot deposit zero!');
     })
 
     it('does not allow negative deposits', function() {
-      expect(acc.deposit.bind(acc, -10)).to.throw('-10: you cannot deposit a negative amount!');
+      expect(acc.makeTransaction.bind(acc, "deposit", -10)).to.throw('-10: you cannot deposit a negative amount!');
     });
   });
 
@@ -46,16 +46,23 @@ describe('Account', function() {
     });
 
     it('make a £100 withdrawal', function() {
-      acc.withdraw(100);
+      acc.makeTransaction("withdraw", 100);
       expect(acc.getBalance()).to.equal(400);
     });
 
     it('does not allow zero withdrawal', function() {
-      expect(acc.withdraw.bind(acc, 0)).to.throw('0: you cannot withdraw zero!');
+      expect(acc.makeTransaction.bind(acc, "withdraw", 0)).to.throw('0: you cannot withdraw zero!');
     })
 
     it('does not allow negative deposits', function() {
-      expect(acc.withdraw.bind(acc, -10)).to.throw('-10: please choose a positive amount to withdraw');
+      expect(acc.makeTransaction.bind(acc, "withdraw", -10)).to.throw('-10: you cannot withdraw a negative amount!');
+    });
+  });
+
+  describe('Invalid transaction type', function() {
+    it('throws an error if not a deposit or withdrawal', function() {
+      var acc = new Account.Account(500);
+      expect(acc.makeTransaction.bind(acc, "bla", 20)).to.throw('bla: not recognised');
     });
   });
 });
