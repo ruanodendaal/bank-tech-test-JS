@@ -1,5 +1,6 @@
 'use strict';
 const Statement = require('./Statement');
+const Transaction = require('./Transaction');
 
 class Account {
   constructor(balance) {
@@ -12,11 +13,13 @@ class Account {
   makeTransaction(type, amount) {
     switch (type) {
       case "deposit":
-        isValid(type, amount)
+        isValid(type, amount);
+        addTransaction(this.statement, type, amount);
         return this._balance += amount;
         break;
       case "withdraw":
-        isValid(type, amount)
+        isValid(type, amount);
+        addTransaction(this.statement, type, amount);
         return this._balance -= amount;
         break;
       default:
@@ -24,6 +27,11 @@ class Account {
     }
   }
 };
+
+function addTransaction(statement, type, amount) {
+  let trans = new Transaction.Transaction(type, amount);
+  statement.transactions.push(trans);
+}
 
 function isValid(type, amount) {
   if (amount == 0) {
