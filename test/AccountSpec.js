@@ -37,4 +37,25 @@ describe('Account', function() {
       expect(acc.deposit.bind(acc, -10)).to.throw('-10: you cannot deposit a negative amount!');
     });
   });
+
+  describe('Making withdrawal', function() {
+    var acc;
+
+    beforeEach(function() {
+      acc = new Account.Account(500);
+    });
+
+    it('make a £100 withdrawal', function() {
+      acc.withdraw(100);
+      expect(acc.getBalance()).to.equal(400);
+    });
+
+    it('does not allow zero withdrawal', function() {
+      expect(acc.withdraw.bind(acc, 0)).to.throw('0: you cannot withdraw zero!');
+    })
+
+    it('does not allow negative deposits', function() {
+      expect(acc.withdraw.bind(acc, -10)).to.throw('-10: please choose a positive amount to withdraw');
+    });
+  });
 });
