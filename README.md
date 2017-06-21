@@ -1,6 +1,4 @@
-[![Build Status]()
-
-# Bank tech test
+# Bank tech test [![Build Status](https://travis-ci.org/ruanodendaal/bank-tech-test-JS.svg?branch=master)](https://travis-ci.org/ruanodendaal/bank-tec)
 
 ## Specification
 
