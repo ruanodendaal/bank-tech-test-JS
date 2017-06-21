@@ -2,6 +2,7 @@
 
 const expect = require("chai").expect;
 const Transaction = require('../app/Transaction');
+const today = require('../app/DateToday');
 
 describe('Transaction', function() {
   var trans;
@@ -17,6 +18,10 @@ describe('Transaction', function() {
 
     it('creates a single transaction with transaction type', function() {
       expect(trans.type).to.equal("deposit");
+    });
+
+    it('stores the date of the transaction', function() {
+      expect(trans.date).to.equal(today.DateToday());
     });
   });
 });
