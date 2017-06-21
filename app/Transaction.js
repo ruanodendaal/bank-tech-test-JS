@@ -2,10 +2,11 @@
 const today = require('../app/DateToday');
 
 class Transaction {
-  constructor(type, amount) {
+  constructor(type, amount, balance) {
     this.type = type;
     this.amount = amount;
     this.date = today.DateToday();
+    this.currentBalance = balance;
   }
 };
 

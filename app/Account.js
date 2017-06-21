@@ -14,13 +14,15 @@ class Account {
     switch (type) {
       case "deposit":
         isValid(type, amount);
-        addTransaction(this.statement, type, amount);
-        return this._balance += amount;
+        this._balance += amount;
+        addTransaction(this.statement, type, amount, this._balance);
+        return this._balance;
         break;
       case "withdraw":
         isValid(type, amount);
-        addTransaction(this.statement, type, amount);
-        return this._balance -= amount;
+        this._balance -= amount;
+        addTransaction(this.statement, type, amount, this._balance);
+        return this._balance;
         break;
       default:
         throw new Error(`${type}: not recognised`);
@@ -28,8 +30,8 @@ class Account {
   }
 };
 
-function addTransaction(statement, type, amount) {
-  let trans = new Transaction.Transaction(type, amount);
+function addTransaction(statement, type, amount, balance) {
+  let trans = new Transaction.Transaction(type, amount, balance);
   statement.transactions.push(trans);
 }
 
