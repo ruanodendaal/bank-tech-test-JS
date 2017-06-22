@@ -1,4 +1,4 @@
-# Bank tech test [![Build Status](https://travis-ci.org/ruanodendaal/bank-tech-test-JS.svg?branch=master)](https://travis-ci.org/ruanodendaal/bank-tec)[![Coverage Status](https://coveralls.io/repos/github/ruanodendaal/bank-tech-test-JS/badge.svg?branch=master)](https://coveralls.io/github/ruanodendaal/bank-tech-test-JS?branch=master)
+# Bank tech test [![Build Status](https://travis-ci.org/ruanodendaal/bank-tech-test-JS.svg?branch=master)](https://travis-ci.org/ruanodendaal/bank-tec) [![Coverage Status](https://coveralls.io/repos/github/ruanodendaal/bank-tech-test-JS/badge.svg?branch=master)](https://coveralls.io/github/ruanodendaal/bank-tech-test-JS?branch=master)
 
 ## Specification
 
@@ -57,3 +57,4 @@ To run:
 ### Technologies
 - JavaScript
 - Mocha & Chai testing
+- Node.js
